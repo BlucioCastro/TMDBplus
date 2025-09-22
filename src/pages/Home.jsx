@@ -1,5 +1,10 @@
-export default function Home(){
-  return(
-    <h1 className="text-amber-50">h1</h1>
-  )
+import Carousel from "../components/Carousel";
+
+export default function Home() {
+	return (
+		<div> 
+      
+			<Carousel title="Populares" url="/movie/popular" />
+		</div>
+	);
 }

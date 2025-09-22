@@ -21,7 +21,6 @@ export default function Header() {
             onClick={() => setMenuOpen(!menuOpen)}
           >
             <span>Navegar</span>
-            <CakeIcon className="w-4 h-4"/>
             <ChevronDownIcon className={`w-4 h-4 ml-1 transition-transform ${menuOpen ? "rotate-180" : ""}`}/>
           </button>
           {menuOpen ? (
