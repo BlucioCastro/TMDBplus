@@ -49,11 +49,11 @@ export default function Poster() {
 	return (
 		<>
 			{banner ? (
-				<div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh]">
+				<div className="relative w-full h-[50vh] sm:h-[80vh] md:h-[90vh] lg:h-[90vh] md:pt-4">
 					<img
 						src={`https://image.tmdb.org/t/p/w1280${banner.backdrop_path}`}
 						alt={banner.title}
-						className="w-full h-full object-cover"
+						className="w-full h-full object-cover object-top"
 					/>
 					<div className="absolute inset-0 bg-gradient-to-b from-transparent to-bgDark"></div>
 
@@ -62,7 +62,7 @@ export default function Poster() {
 						<h1 className="text-2xl md:text-5xl font-bold">{banner.title}</h1>
 						<p className="hidden md:block mt-4 text-lg">{banner.overview}</p>
 						<div>
-							<button className="bg-[#4b4b4b69] px-8 py-4 mt-4 flex items-center gap-3 text-2xl rounded-[.25rem] cursor-pointer">
+							<button className="bg-[#4b4b4b69] px-4 py-4 md:px-8 md:py-4 mt-4 flex items-center gap-3 text-2xl rounded-[.25rem] cursor-pointer">
 								<InformationCircleIcon className="w-6 h-6" />
 								Mais Informações
 							</button>

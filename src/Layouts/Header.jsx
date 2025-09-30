@@ -46,7 +46,7 @@ export default function Header() {
 				<input
 					type="search"
 					placeholder="Titulos, generos"
-					className="border-2 w-40 md:w-64 px-3 py-1 text-sm md:mr-12"
+					className="border-2 w-40 md:w-64 px-3 py-1 text-sm md:mr-12 "
 				/>
 			</form>
 		</header>

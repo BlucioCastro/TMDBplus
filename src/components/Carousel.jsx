@@ -6,6 +6,7 @@ import "swiper/css/pagination";
 import "../css/custom-swiper-bullet.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Link } from "react-router-dom";
 
 
 export default function Carousel({ title, url }) {
@@ -30,7 +31,8 @@ export default function Carousel({ title, url }) {
 					const result = await response.json();
 					all = all.concat(result.results || [])
 				}
-				setData(all);
+				const unique = all.filter((item, index, self) => index ===self.findIndex((t) => t.id === item.id))
+				setData(unique);
 				setLoading(false);
 			} catch (err) {
 				setError(err.message);
@@ -39,11 +41,12 @@ export default function Carousel({ title, url }) {
 			}
 		};
 		fetchData();
-	}, []);
+	}, [url, apiKey]);
 	if (!data) return <div>Not data found</div>;
 	if (loading) return <div>Loading...</div>;
 	if (error) return <div>Error: {error}</div>;
 
+	const mediaType = url.includes("/tv") ? "tv" : "movie"
 	return (
 		<>
 			<div className="mx-12 mb-8">
@@ -68,7 +71,9 @@ export default function Carousel({ title, url }) {
 					<div className="mx-8">
 						{data.map((item) => (
 							<SwiperSlide key={item.id} className="">
-								<Card item={item} />
+								<Link to={`/details/${mediaType}/${item.id}`}>
+									<Card item={item} />
+								</Link>
 							</SwiperSlide>
 						))}
 					</div>

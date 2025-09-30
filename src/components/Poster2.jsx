@@ -1,28 +1,27 @@
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 
 export default function Poster2() {
 	const [banner, setBanner] = useState(null)
-	const apiKey = import.meta.env.VITE_TMDB_API_KEY;
+	const apiKey = import.meta.env.VITE_TMDB_API_KEY
 
 	useEffect(()=>{
-		async function FetchPages(pagesToFetch=3) {
+		async function fetchPages(pagesToFetch=3) {
 			let all = []
 			const first = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&page=1`)
 			const firstJson = await first.json()
 			all = firstJson.results || []
 
-			for(let p = 2; p<=pagesToFetch; p++){
+			for(let p = 1; p<=pagesToFetch; p++){
 				const res = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&page=${p}`)
-				const json = await res.json()
+				const json = res.json()
 				all = all.concat(json.results || [])
 			}
 			const withBackdrop = all.filter(item => item.backdrop_path)
-			const randomMovie = withBackdrop[Math.floor(Math.random() * withBackdrop.length)]
+			const randomMovie = withBackdrop[Math.floor(Math.random()*withBackdrop.length)]
 			setBanner(randomMovie)
 		}
-		FetchPages()
-	},[apiKey])
-
+		fetchPages()
+	}, [apiKey])
 	return (
 		<>
 			{banner ? (
