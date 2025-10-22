@@ -7,6 +7,7 @@ import "../css/custom-swiper-bullet.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Link } from "react-router-dom";
+import Loading from "./Loading";
 
 
 export default function Carousel({ title, url }) {
@@ -42,8 +43,8 @@ export default function Carousel({ title, url }) {
 		};
 		fetchData();
 	}, [url, apiKey]);
-	if (!data) return <div>Not data found</div>;
-	if (loading) return <div>Loading...</div>;
+	if (!data) return <Loading/>;
+	if (loading) return <Loading/>;
 	if (error) return <div>Error: {error}</div>;
 
 	const mediaType = url.includes("/tv") ? "tv" : "movie"

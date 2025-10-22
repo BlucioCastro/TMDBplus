@@ -5,7 +5,7 @@ export default function Poster2() {
 	const apiKey = import.meta.env.VITE_TMDB_API_KEY
 
 	useEffect(()=>{
-		async function fetchPages(pagesToFetch=3) {
+		async function fetchPage(pagesToFetch=3) {
 			let all = []
 			const first = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&page=1`)
 			const firstJson = await first.json()
@@ -20,7 +20,7 @@ export default function Poster2() {
 			const randomMovie = withBackdrop[Math.floor(Math.random()*withBackdrop.length)]
 			setBanner(randomMovie)
 		}
-		fetchPages()
+		fetchPage()
 	}, [apiKey])
 	return (
 		<>

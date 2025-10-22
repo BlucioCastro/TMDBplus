@@ -45,7 +45,7 @@ export default function Header() {
 			<form className="flex items-center">
 				<input
 					type="search"
-					placeholder="Titulos, generos"
+					placeholder="Titulos, Gêneros"
 					className="border-2 w-40 md:w-64 px-3 py-1 text-sm md:mr-12 "
 				/>
 			</form>
