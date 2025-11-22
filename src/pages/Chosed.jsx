@@ -49,6 +49,10 @@ export default function Chosed() {
 			return anonimous;
 		}
 	}
+	useEffect(()=>{
+		window.scrollTo(0, 0)
+	}, [id])
+
 	const isInList =
 		data && mylist.some((i) => i.id === data.id && i.type === type);
 	return (

@@ -6,11 +6,16 @@ import SearchProvider from "./context/SearchContext.jsx";
 import MyListContextProvider from "./context/MylistContext.jsx";
 
 createRoot(document.getElementById("root")).render(
-	<StrictMode>
-		<MyListContextProvider>
-			<SearchProvider>
-				<App />
-			</SearchProvider>
-		</MyListContextProvider>
-	</StrictMode>
+	// <StrictMode>
+	// 	<MyListContextProvider>
+	// 		<SearchProvider>
+	// 			<App />
+	// 		</SearchProvider>
+	// 	</MyListContextProvider>
+	// </StrictMode>
+	<MyListContextProvider>
+	<SearchProvider>
+		<App />
+	</SearchProvider>
+</MyListContextProvider>
 );

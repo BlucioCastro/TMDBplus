@@ -74,13 +74,13 @@ export default function Header() {
           )}
         </div>
 			</div>
-			<form className="flex items-center">
+			<form className="flex items-center ">
 				<input
 					type="search"
           value={query}
           onChange={handleChange}
 					placeholder="Titles, Genres"
-					className="border-2 w-40 md:w-64 px-3 py-1 text-sm md:mr-12 "
+					className="border-2 w-40 md:w-64 px-3 py-1 text-sm md:mr-12 rounded-[.25rem]"
 				/>
 			</form>
 		</header>

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export const MyListContext = createContext();
 
@@ -8,6 +8,20 @@ export function useMyList() {
 
 export default function MyListContextProvider({ children }) {
 	const [mylist, setMyList] = useState([]);
+
+	useEffect(()=>{
+		const saved = localStorage.getItem("mylist")
+		if(saved){
+			try{
+				setMyList(JSON.parse(saved))
+			}catch{
+				setMyList([])
+			}
+		}
+	},[])
+	useEffect(()=>{
+		localStorage.setItem("mylist", JSON.stringify(mylist))
+	},[mylist])
 
 	function addToList(item) {
 		setMyList((prev) =>
